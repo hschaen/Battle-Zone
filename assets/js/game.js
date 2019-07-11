@@ -122,9 +122,12 @@ $(document).ready(function () {
             }
            });
         $('#reset').hide();
-        $('#attack').attr('disabled');
+        $('#controls button').attr('disabled');
         $('.enemy.selected').removeClass('selected');
         $('.fighter.selected').removeClass('selected');
+        $('.enemy .healthPoints').text("120");
+        $('.fighter .healthPoints').text("120");
+        $('.pbpTextFighter, .pbpTextEnemy').empty();
     }
     $('#reset').on("click",function() {
         reset();
