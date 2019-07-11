@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title></title>
+        <!-- meta viewport -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- meta content type -->
+        <meta charset="UTF-8">
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="assets/css/style.css"/>
+
+        <!-- jQuery -->
+        <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+        
+    </head>
+    <body>
+        <div class="container">
+            <div id="gameHeader" class="row">
+                <div class="col-sm-12">
+                    <h1>Combat Zone</h1>
+                    <p>Choose your hero, then chose your enemy. Attack when ready.</p>
+                </div>
+            </div>
+            <div id="fighterHeader" class="row">
+                <div class="col-sm-4">
+                    <h2>Heroes</h2>
+                </div>
+            </div>
+            <div id="fighters" class="row">
+                <!-- Fighters-->
+                
+            </div>
+            <hr>
+            <!-- Enemies -->
+            <div id="enemyHeader" class="row">
+                    <div class="col-sm-4">
+                        <h2>Enemies</h2>
+                    </div>
+                </div>
+            <div id="enemies" class="row">
+                <!-- Fighters-->
+            </div>
+            <!-- Attack button-->
+            <div class="row" id="controls">
+                <button class="btn btn-success btn-lg" id="attack" disabled>Attack</button>
+            </div>
+
+            <!-- Defender Area-->
+            <div id="defenderHeader" class="row">
+                    <div class="col-sm-4">
+                        <h2>Opponent</h2>
+                    </div>
+                </div>
+            <div id="defenderRow" class="row">
+                <div id="defender" class="col-sm-4"></div>
+                <!-- Play by Play-->
+                <div id="playByPlayText" class="col-sm-8">
+                    <span class="pbpTextFighter"></span>
+                    <br/>
+                    <span class="pbpTextEnemy"></span>
+                    <div id="resetBtn">
+                        <button class="btn btn-danger" id="reset">Reset</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div> 
+        <script type="text/javascript" src="assets/js/game.js"></script>
+    </body>
+</html>
