@@ -1,3 +1,33 @@
-.selected {
+body {
+    font-size:16px;
+    line-height: 20px;
+    color:black;
+}.selected {
     border: 3px solid red;
+}
+#attack {
+    margin:0 auto;
+}
+#playByPlayText {
+    border:3px solid black;
+    background: #ccc;
+    text-align:center;
+    width:100%;
+    margin: 20px;
+}
+#playByPlayText span {
+    font-size:2em;
+    font-style: italic;
+    line-height: 2em;
+}
+#hero, #defender {
+    width: 250px;
+    height: 250px;
+    background: #ccc;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+}
+#reset {
+    margin:25px;
 }

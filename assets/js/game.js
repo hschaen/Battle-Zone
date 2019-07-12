@@ -16,8 +16,11 @@ $(document).ready(function () {
     var checkEnemyHP = "";
     var checkFighterHP = "";
     var missingDiv = "";
+    var missingDiv2 = "";
     var missingDivIndex = 0;
+    var missingDivIndex2 = 0;
     var selectedDefender = "";
+    var selectedFighter = "";
     var fighters = ["Harrison","Matthew","Schaen"];
     var enemies = ["Hitler", "Satan", "Carbs"];
     for (var i = 0; i < fighters.length; i++) {
@@ -37,6 +40,7 @@ $(document).ready(function () {
         $('.fighter').removeClass('selected');
         $(this).addClass('selected');
         isFighterSelected = true;
+        $('#hero').append($(this));
     });
     // Choose an enemy
     $('.enemy').on("click", function() {
@@ -82,9 +86,12 @@ $(document).ready(function () {
 
         if (checkEnemyHPNum <= 0) {
             alert('Game Over. You Win.');
+            $('#attack').prop('disabled',true);
+
         }
         if (checkFighterHPNum <= 0) {
-            alert('Game Over. You Lose.')
+            alert('Game Over. You Lose.');
+            $('#attack').prop('disabled',true);
         } 
     }
     function reset() {
@@ -104,25 +111,38 @@ $(document).ready(function () {
         checkEnemyHP = "";
         checkFighterHP = "";
         missingDiv = "";
+        missingDiv2 = "";
         missingDivIndex = 0;
+        missingDivIndex2 = 0;
         selectedDefender = "";
+        selectedFighter = "";
         
         var elems = $('#enemies .col-sm-4');
+        var elems2 = $('#fighters .col-sm-4');
         var args = jQuery.makeArray(elems);
-        //for (var k = 0; k < args.length; k++) {
-           jQuery.each(args, function(k, val) {
+        var args2 = jQuery.makeArray(elems2);
+        jQuery.each(args, function(k, val) {
 
-            if($(args[k]).html().length == 0) {
-                missingDiv = args[k];
-                missingDivIndex = $(this).index();
-                selectedDefender = $('#defender .enemy.selected');
-                console.log(missingDivIndex);
-                console.log(missingDiv);
-                $('#enemies .col-sm-4').eq(missingDivIndex).html(selectedDefender);
+        if($(args[k]).html().length == 0) {
+            missingDiv = args[k];
+            missingDivIndex = $(this).index();
+            selectedDefender = $('#defender .enemy.selected');
+            $('#enemies .col-sm-4').eq(missingDivIndex).html(selectedDefender);
+        }
+        });
+
+        jQuery.each(args2, function(l, val) {
+
+            if($(args2[l]).html().length == 0) {
+                missingDiv2 = args2[l];
+                missingDivIndex2 = $(this).index();
+                selectedFighter = $('#hero .fighter.selected');
+                console.log(selectedFighter);
+                $('#fighters .col-sm-4').eq(missingDivIndex2).html(selectedFighter);
             }
-           });
+        });
         $('#reset').hide();
-        $('#controls button').attr('disabled');
+        $('#attack').prop('disabled',true);
         $('.enemy.selected').removeClass('selected');
         $('.fighter.selected').removeClass('selected');
         $('.enemy .healthPoints').text("120");
